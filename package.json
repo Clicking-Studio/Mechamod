@@ -20,7 +20,5 @@
   "dependencies": {
     "three": "147dev",
     "gsap": "^3.11.4"
-  },
-  "main": "script.js",
-  "description": ""
+  }
 }
