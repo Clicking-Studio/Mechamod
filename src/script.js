@@ -85,7 +85,7 @@ let objects = []
 const hiddenZoneZ = -200
 const loader = new STLLoader();
 
-loader.load('../assets/shenron-keycap-v1.stl', (geometry) => {
+loader.load('../src/assets/shenron-keycap-v1.stl', (geometry) => {
     const material = new THREE.MeshNormalMaterial();
     const model = new THREE.Mesh(geometry, material);
     objects.push(model);
@@ -94,19 +94,19 @@ loader.load('../assets/shenron-keycap-v1.stl', (geometry) => {
     // Hide the loading message when all keycaps are loaded
     loadingMessage.style.display = 'none';
 
-    loader.load('../assets/Snake_KeyCap_VI_STL_001.stl', (geometry) => {
+    loader.load('../src/assets/Snake_KeyCap_VI_STL_001.stl', (geometry) => {
         const material = new THREE.MeshNormalMaterial();
         objects.push(new THREE.Mesh(geometry, material))
         scene.add(objects.at(-1))
         objects.at(-1).position.setZ(hiddenZoneZ)
 
-        loader.load('../assets/model3.stl', (geometry) => {
+        loader.load('../src/assets/model3.stl', (geometry) => {
             const material = new THREE.MeshNormalMaterial();
             objects.push(new THREE.Mesh(geometry, material))
             scene.add(objects.at(-1))
             objects.at(-1).position.setZ(hiddenZoneZ)
 
-            loader.load('../assets/model4.stl', (geometry) => {
+            loader.load('../src/assets/model4.stl', (geometry) => {
                 const material = new THREE.MeshNormalMaterial();
                 objects.push(new THREE.Mesh(geometry, material))
                 scene.add(objects.at(-1))
