@@ -21,6 +21,6 @@
     "three": "147dev",
     "gsap": "^3.11.4"
   },
-  "main": "index.js",
+  "main": "index.html",
   "description": ""
 }
