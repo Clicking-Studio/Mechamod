@@ -455,7 +455,7 @@ label i {
   position: absolute;
   width: 500px;
   height: 500px;
-  background: url("/dist/assets/shadow.png")no-repeat center center;
+  background: url("./assets/shadow.png") no-repeat center center;
   background-size: 1400px;
   visibility: hidden;
 }
