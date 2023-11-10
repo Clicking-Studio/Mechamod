@@ -4,7 +4,7 @@ import { STLLoader } from './modules/STLLoader.js';
 import * as TWEEN from './modules/tween.esm.js';
 
 // Fetch STL file URL
-const stlUrl = 'https://mechamodkeycaps.netlify.app/assets/snake_keycap_vi_stl_001.stl';
+const stlUrl = 'https://mechamodkeys.netlify.app/assets/snake_keycap_vi_stl_001.stl';
 console.log("fetching")
 
 // Example using Fetch API

@@ -562,7 +562,7 @@ var _orbitControlsJs = require("./modules/OrbitControls.js");
 var _stlloaderJs = require("./modules/STLLoader.js");
 var _tweenEsmJs = require("./modules/tween.esm.js");
 // Fetch STL file URL
-const stlUrl = "https://mechamodkeycaps.netlify.app/assets/snake_keycap_vi_stl_001.stl";
+const stlUrl = "https://mechamodkeys.netlify.app/assets/snake_keycap_vi_stl_001.stl";
 console.log("fetching");
 // Example using Fetch API
 fetch(stlUrl).then((response)=>response.blob()).then((stlBlob)=>{
