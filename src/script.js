@@ -3,7 +3,18 @@ import { OrbitControls } from "./modules/OrbitControls.js";
 import { STLLoader } from './modules/STLLoader.js';
 import * as TWEEN from './modules/tween.esm.js';
 
+// Fetch STL file URL
+const stlUrl = 'https://mechamodkeycaps.netlify.app/assets/snake_keycap_vi_stl_001.stl';
+console.log("fetching")
 
+// Example using Fetch API
+fetch(stlUrl)
+  .then(response => response.blob())
+  .then(stlBlob => {
+    // Use the STL blob, e.g., to display it with a 3D viewer
+    displaySTL(stlBlob);
+  })
+  .catch(error => console.error('Error fetching STL file:', error));
 
 // variables for shadows
 let shadow1 = document.getElementById('shadow1')
@@ -85,7 +96,7 @@ let objects = []
 const hiddenZoneZ = -200
 const loader = new STLLoader();
 
-loader.load('../dist/assets/shenron-keycap-v1.stl', (geometry) => {
+loader.load(stlUrl, (geometry) => {
     const material = new THREE.MeshNormalMaterial();
     const model = new THREE.Mesh(geometry, material);
     objects.push(model);
