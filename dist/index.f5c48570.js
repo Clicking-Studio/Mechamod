@@ -562,10 +562,18 @@ var _orbitControlsJs = require("./modules/OrbitControls.js");
 var _stlloaderJs = require("./modules/STLLoader.js");
 var _tweenEsmJs = require("./modules/tween.esm.js");
 // Fetch STL file URL
-const stlUrl = "https://mechamodkeys.netlify.app/assets/snake_keycap_vi_stl_001.stl";
-console.log("fetching");
+const snakeUrl = "https://mechamodkeys.netlify.app/assets/snake_keycap_vi_stl_001.stl";
 // Example using Fetch API
-fetch(stlUrl).then((response)=>response.blob()).then((stlBlob)=>{
+fetch(snakeUrl);
+console.log("fetching snake").then((response)=>response.blob()).then((stlBlob)=>{
+    // Use the STL blob, e.g., to display it with a 3D viewer
+    displaySTL(stlBlob);
+}).catch((error)=>console.error("Error fetching STL file:", error));
+// Fetch STL file URL
+const shenonUrl = "https://mechamodkeys.netlify.app/assets/shenron-keycap-v1.stl";
+// Example using Fetch API
+fetch(shenonUrl);
+console.log("fetching snake").then((response)=>response.blob()).then((stlBlob)=>{
     // Use the STL blob, e.g., to display it with a 3D viewer
     displaySTL(stlBlob);
 }).catch((error)=>console.error("Error fetching STL file:", error));
@@ -631,7 +639,7 @@ scene.add(pointLight);
 let objects = [];
 const hiddenZoneZ = -200;
 const loader = new (0, _stlloaderJs.STLLoader)();
-loader.load(stlUrl, (geometry)=>{
+loader.load(snakeUrl, (geometry)=>{
     const material = new _three.MeshNormalMaterial();
     const model = new _three.Mesh(geometry, material);
     objects.push(model);
@@ -639,7 +647,7 @@ loader.load(stlUrl, (geometry)=>{
     objects.at(-1).position.setZ(hiddenZoneZ);
     // Hide the loading message when all keycaps are loaded
     loadingMessage.style.display = "none";
-    loader.load("../dist/assets/Snake_KeyCap_VI_STL_001.stl", (geometry)=>{
+    loader.load(shenonUrl, (geometry)=>{
         const material = new _three.MeshNormalMaterial();
         objects.push(new _three.Mesh(geometry, material));
         scene.add(objects.at(-1));

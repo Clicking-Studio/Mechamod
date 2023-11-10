@@ -4,11 +4,26 @@ import { STLLoader } from './modules/STLLoader.js';
 import * as TWEEN from './modules/tween.esm.js';
 
 // Fetch STL file URL
-const stlUrl = 'https://mechamodkeys.netlify.app/assets/snake_keycap_vi_stl_001.stl';
-console.log("fetching")
+const snakeUrl = 'https://mechamodkeys.netlify.app/assets/snake_keycap_vi_stl_001.stl';
 
 // Example using Fetch API
-fetch(stlUrl)
+fetch(snakeUrl)
+    console.log("fetching snake")
+  .then(response => response.blob())
+  .then(stlBlob => {
+    // Use the STL blob, e.g., to display it with a 3D viewer
+    displaySTL(stlBlob);
+  })
+  .catch(error => console.error('Error fetching STL file:', error));
+
+
+  
+// Fetch STL file URL
+const shenonUrl = 'https://mechamodkeys.netlify.app/assets/shenron-keycap-v1.stl';
+
+// Example using Fetch API
+fetch(shenonUrl)
+    console.log("fetching snake")
   .then(response => response.blob())
   .then(stlBlob => {
     // Use the STL blob, e.g., to display it with a 3D viewer
@@ -96,7 +111,7 @@ let objects = []
 const hiddenZoneZ = -200
 const loader = new STLLoader();
 
-loader.load(stlUrl, (geometry) => {
+loader.load(snakeUrl, (geometry) => {
     const material = new THREE.MeshNormalMaterial();
     const model = new THREE.Mesh(geometry, material);
     objects.push(model);
@@ -105,7 +120,7 @@ loader.load(stlUrl, (geometry) => {
     // Hide the loading message when all keycaps are loaded
     loadingMessage.style.display = 'none';
 
-    loader.load('../dist/assets/Snake_KeyCap_VI_STL_001.stl', (geometry) => {
+    loader.load(shenonUrl, (geometry) => {
         const material = new THREE.MeshNormalMaterial();
         objects.push(new THREE.Mesh(geometry, material))
         scene.add(objects.at(-1))
