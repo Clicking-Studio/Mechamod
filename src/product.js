@@ -3,6 +3,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
 import * as TWEEN from '@tweenjs/tween.js';
 
+
 // variables for shadows
 let shadow1 = document.getElementById('shadow1')
 let shadow2 = document.getElementById('shadow2')
@@ -86,26 +87,26 @@ let objects = []
 const hiddenZoneZ = -200
 const loader = new STLLoader();
 
-const snake = loader.load('../assets/Snake_KeyCap_VI_STL_001.stl', (geometry) => {
+const snake = loader.load('https://firebasestorage.googleapis.com/v0/b/mechamod-97928.appspot.com/o/Snake_KeyCap_VI_STL_001.stl?alt=media', (geometry) => {
     const material = new THREE.MeshNormalMaterial();
     objects.push(new THREE.Mesh(geometry, material))
     scene.add(objects.at(-1))
     // Hide the loading message when all keycaps are loaded
     loadingMessage.style.display = 'none';
 
-    const shenon = loader.load('../assets/shenron-keycap-v1.stl', (geometry) => {
+    const shenon = loader.load('https://firebasestorage.googleapis.com/v0/b/mechamod-97928.appspot.com/o/shenron-keycap-v1.stl?alt=media', (geometry) => {
         const material = new THREE.MeshNormalMaterial();
         objects.push(new THREE.Mesh(geometry, material))
         scene.add(objects.at(-1))
         objects.at(-1).position.setZ(hiddenZoneZ)
 
-        const model3 = loader.load('../assets/model3.stl', (geometry) => {
+        const model3 = loader.load('https://firebasestorage.googleapis.com/v0/b/say-hi-30f6d.appspot.com/o/model4.stl?alt=media', (geometry) => {
             const material = new THREE.MeshNormalMaterial();
             objects.push(new THREE.Mesh(geometry, material))
             scene.add(objects.at(-1))
             objects.at(-1).position.setZ(hiddenZoneZ)
 
-            const model4 = loader.load('../assets/model4.stl', (geometry) => {
+            const model4 = loader.load('https://firebasestorage.googleapis.com/v0/b/say-hi-30f6d.appspot.com/o/model3.stl?alt=media', (geometry) => {
                 const material = new THREE.MeshNormalMaterial();
                 objects.push(new THREE.Mesh(geometry, material))
                 scene.add(objects.at(-1))

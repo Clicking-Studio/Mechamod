@@ -82,8 +82,11 @@ scene.add(pointLight);
 let objects = []
 const hiddenZoneZ = -200
 const loader = new STLLoader();
+console.log("loading")
 
-loader.load('../src/assets/shenron-keycap-v1.stl', (geometry) => {
+loader.load('https://firebasestorage.googleapis.com/v0/b/mechamod-97928.appspot.com/o/Snake_KeyCap_VI_STL_001.stl?alt=media', (geometry) => {
+    console.log("loaded")
+    // console the type of the geometry
     const material = new THREE.MeshNormalMaterial();
     const model = new THREE.Mesh(geometry, material);
     objects.push(model);
@@ -92,19 +95,21 @@ loader.load('../src/assets/shenron-keycap-v1.stl', (geometry) => {
     // Hide the loading message when all keycaps are loaded
     loadingMessage.style.display = 'none';
 
-    loader.load('../src/assets/Snake_KeyCap_VI_STL_001.stl', (geometry) => {
+    console.log("done")
+
+    loader.load('https://firebasestorage.googleapis.com/v0/b/mechamod-97928.appspot.com/o/shenron-keycap-v1.stl?alt=media', (geometry) => {
         const material = new THREE.MeshNormalMaterial();
         objects.push(new THREE.Mesh(geometry, material))
         scene.add(objects.at(-1))
         objects.at(-1).position.setZ(hiddenZoneZ)
 
-        loader.load('../src/assets/model3.stl', (geometry) => {
+        loader.load('https://firebasestorage.googleapis.com/v0/b/say-hi-30f6d.appspot.com/o/model4.stl?alt=media', (geometry) => {
             const material = new THREE.MeshNormalMaterial();
             objects.push(new THREE.Mesh(geometry, material))
             scene.add(objects.at(-1))
             objects.at(-1).position.setZ(hiddenZoneZ)
 
-            loader.load('../src/assets/model4.stl', (geometry) => {
+            loader.load('https://firebasestorage.googleapis.com/v0/b/say-hi-30f6d.appspot.com/o/model3.stl?alt=media', (geometry) => {
                 const material = new THREE.MeshNormalMaterial();
                 objects.push(new THREE.Mesh(geometry, material))
                 scene.add(objects.at(-1))
@@ -126,6 +131,10 @@ loader.load('../src/assets/shenron-keycap-v1.stl', (geometry) => {
             });
         });
     });
+}, (xhr) => {
+    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+}, (error) => {
+    console.log(error);
 });
 
 
