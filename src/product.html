@@ -9,7 +9,11 @@
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/metropolis" type="text/css" />
     <link href="https://fonts.cdnfonts.com/css/hug-me-tight" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/hamburger.css">
+    <link rel="stylesheet" href="styles/menu.css">
     <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="styles/test.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
 </head>
 
@@ -20,14 +24,14 @@
 
         <div class="snake-background-container">
             <div class="snake-background-item">
-              <div class="snake-background-wrapper">
-                <img src="../images/snake_background1.png" alt="">
-                <div class="snake-background-overlay">
+                <div class="snake-background-wrapper">
+                    <img src="../images/snake_background1.png" alt="">
+                    <div class="snake-background-overlay">
+                    </div>
                 </div>
-              </div>
             </div>
         </div>
-       
+
     </div>
     <canvas class="webgl" id="webgl"></canvas>
     <div id="loading-message" class="loading-message">Loading keycaps...</div>
@@ -49,11 +53,10 @@
                     <p>Model 4 . Model 4 . Model 4 . Model 4 . Model 4 . Model 4 . Model 4</p>
                 </div>
             </div>
-            <button id="snake"></button><!--the snake's button -->
-           
-            <button id="shenon"></button><!--the shenon's button -->
-            <button id="model3"></button><!--the model3's button -->
-            <button id="model4"></button><!--the model4's button -->
+            <!-- <button id="snake"></button>the snake's button -->
+            <!-- <button id="shenon"></button>the shenon's button -->
+            <!-- <button id="model3"></button>the model3's button -->
+            <!-- <button id="model4"></button>the model4's button -->
         </div>
         <button class="left-arrow-btns-hidden" id="left-arrow-btn"></button>
         <button class="right-arrow-btns-hidden" id="right-arrow-btn"></button>
@@ -85,42 +88,40 @@
 
     <input type="checkbox" id="circleMenu">
 
-    
+
 
     <div id="product-container"><!-- SNAKE PRODUCT INFO -->
-    <div class="product-left-text-container">
-        <div class="product-left-text-title">
-            The King Cobra
+        <div class="product-left-text-container">
+            <div class="product-left-text-title">
+                The King Cobra
+            </div>
+            <div class="product-left-text-header">
+                A captivating embodiment of<br />
+                the enigmatic cobra, a symbol<br />
+                of stealth, power, and lethal<br />
+                elegance.
+            </div>
+            <ul class="product-left-text-bottom">
+                <li>Casted with Smooth-On</li>
+                <li>Compatible with Cherry MX</li>
+                <li class="li-continuation">and clones</li>
+                <li>Hand Crafted</li>
+                <li>Limited to 50 units sold</li>
+                <li class="li-continuation">worldwide, one of a kind ;)</li>
+            </ul>
         </div>
-        <div class="product-left-text-header">
-        A captivating embodiment of<br/>
-        the enigmatic cobra, a symbol<br/>
-        of stealth, power, and lethal<br/>
-        elegance.
+
+        <div class="color-options">
+            <div class="color-option" id="color-black">BLACK</div>
+            <div class="color-option" id="color-desert">DESERT</div>
+            <div class="color-option" id="color-gold">GOLD</div>
         </div>
-        <ul class="product-left-text-bottom">
-            <li>Casted with Smooth-On</li>
-            <li>Compatible with Cherry MX</li>
-            <li class="li-continuation">and clones</li>
-            <li>Hand Crafted</li>
-            <li>Limited to 50 units sold</li>
-            <li class="li-continuation">worldwide, one of a kind ;)</li>
-        </ul>
+
+        <div class="price">₹ 2,499</div>
+
+        <button class="add-to-bag">ADD TO BAG</button>
     </div>
 
-    <div class="color-options">
-        <div class="color-option" id="color-black">BLACK</div>
-        <div class="color-option" id="color-desert">DESERT</div>
-        <div class="color-option" id="color-gold">GOLD</div>
-    </div>
-      
-      <div class="price">
-        ₹ 2,499
-      </div>
-
-      <button class="add-to-bag">ADD TO BAG</button>
-    </div>
-    
 
     <div id="product-container1"><!-- SHENRON PRODUCT INFO -->
         <div class="product-left-text-container">
@@ -128,9 +129,8 @@
                 The Shenron
             </div>
             <div class="product-left-text-header">
-           This will be the keycap<br/>
-           description, I'm just putting<br/>
-            placeholder text for now.
+                An Eternal Dragon summoned<br />
+                from a set of Dragon Balls<br />
             </div>
             <ul class="product-left-text-bottom">
                 <li>Description 1</li>
@@ -141,18 +141,16 @@
                 <li class="li-continuation">test</li>
             </ul>
         </div>
-    
+
         <div class="color-options">
             <div class="color-option" id="color-black">BLACK</div>
             <div class="color-option" id="color-desert">DESERT</div>
             <div class="color-option" id="color-gold">GOLD</div>
         </div>
-          
-          <div class="price">
-            ₹ 2,499
-          </div>
-    
-          <button class="add-to-bag">ADD TO BAG</button>
+
+        <div class="price">₹ 2,499</div>
+
+        <button class="add-to-bag">ADD TO BAG</button>
     </div>
 
 
@@ -162,9 +160,9 @@
                 Keycap #3
             </div>
             <div class="product-left-text-header">
-           This will be also keycap<br/>
-           description for the 3rd, I'm<br/>
-            just putting placeholder text for now.
+                This will be also keycap<br />
+                description for the 3rd, I'm<br />
+                just putting placeholder text for now.
             </div>
             <ul class="product-left-text-bottom">
                 <li>Description for it</li>
@@ -175,18 +173,16 @@
                 <li class="li-continuation">test</li>
             </ul>
         </div>
-    
+
         <div class="color-options">
             <div class="color-option" id="color-black">BLACK</div>
             <div class="color-option" id="color-desert">DESERT</div>
             <div class="color-option" id="color-gold">GOLD</div>
         </div>
-          
-          <div class="price">
-            ₹ 2,499
-          </div>
-    
-          <button class="add-to-bag">ADD TO BAG</button>
+
+        <div class="price">₹ 2,499</div>
+
+        <button class="add-to-bag">ADD TO BAG</button>
     </div>
 
 
@@ -196,9 +192,9 @@
                 Keycap #4
             </div>
             <div class="product-left-text-header">
-           This will be also keycap<br/>
-           description for the 4th, I'm<br/>
-            just putting placeholder text for now.
+                This will be also keycap<br />
+                description for the 4th, I'm<br />
+                just putting placeholder text for now.
             </div>
             <ul class="product-left-text-bottom">
                 <li>Description for it</li>
@@ -209,24 +205,38 @@
                 <li class="li-continuation">test</li>
             </ul>
         </div>
-    
+
         <div class="color-options">
             <div class="color-option" id="color-black">BLACK</div>
             <div class="color-option" id="color-desert">DESERT</div>
             <div class="color-option" id="color-gold">GOLD</div>
         </div>
-          
-          <div class="price">
-            ₹ 2,499
-          </div>
-    
-          <button class="add-to-bag">ADD TO BAG</button>
+
+        <div class="price">₹ 2,499</div>
+
+        <button class="add-to-bag">ADD TO BAG</button>
     </div>
 
+    <div class="testcontainer">
+        <button class="index-button" id="snake">Buy Now</button>
+        <button class="index-button" id="shenon">Buy Now</button>
+        <button class="index-button" id="model3">Buy Now</button>
+        <button class="index-button" id="model4">Buy Now</button>
+
+        <button class="index-button" id="previousBTN">
+            <div class="index-arrow">&#8593;</div>
+            <div>Previous</div>
+        </button>
+        <button class="index-button" id="nextBTN">
+            <div class="index-arrow">&#8595;</div> 
+            <div>Next</div>
+        </button>
+      </div>
     <div class="botcontainer">
-        <img src="mouse-scroll-icon.png" alt="Scroll Icon" class="scroll-wheel" id="scroll-icon">
+        
+        <!-- <img src="mouse-scroll-icon.png" alt="Scroll Icon" class="scroll-wheel" id="scroll-icon"> -->
     </div>
-      
+
 
     <div class="container">
         <a class="button container-button">
@@ -265,7 +275,7 @@
                     <a href=""><img class="instagram_logo" src="/images/instagram_black.png"></a>
                 </div>
             </div>
-            
+
             <div class="menu_item_bottom">
                 <div class="policy_options">
                     <a href="" class="policy_option">Privacy</a>
@@ -292,7 +302,7 @@
             </div>
         </ul>
     </div>
-    
+
     <script type="module" src="product.js"></script>
 
     <script type="module" src="color.js"></script>
@@ -328,31 +338,32 @@
     }
   </script>
 
-  <script>
-    const text1 = document.querySelector('.circle-text1 p')
-    text1.innerHTML = text1.innerText.split("").map(
-        (char, i) => 
-        `<span style="transform:rotate(${i * 5}deg)">${char}</span>`
-    ).join("")
+    <script>
+        const text1 = document.querySelector('.circle-text1 p')
+        text1.innerHTML = text1.innerText.split("").map(
+            (char, i) =>
+                `<span style="transform:rotate(${i * 5}deg)">${char}</span>`
+        ).join("")
 
-    const text2 = document.querySelector('.circle-text2 p')
-    text2.innerHTML = text2.innerText.split("").map(
-        (char, i) => 
-        `<span style="transform:rotate(${i * 5}deg)">${char}</span>`
-    ).join("")
+        const text2 = document.querySelector('.circle-text2 p')
+        text2.innerHTML = text2.innerText.split("").map(
+            (char, i) =>
+                `<span style="transform:rotate(${i * 5}deg)">${char}</span>`
+        ).join("")
 
-    const text3 = document.querySelector('.circle-text3 p')
-    text3.innerHTML = text3.innerText.split("").map(
-        (char, i) => 
-        `<span style="transform:rotate(${i * 5}deg)">${char}</span>`
-    ).join("")
+        const text3 = document.querySelector('.circle-text3 p')
+        text3.innerHTML = text3.innerText.split("").map(
+            (char, i) =>
+                `<span style="transform:rotate(${i * 5}deg)">${char}</span>`
+        ).join("")
 
-    const text4 = document.querySelector('.circle-text4 p')
-    text4.innerHTML = text4.innerText.split("").map(
-        (char, i) => 
-        `<span style="transform:rotate(${i * 5}deg)">${char}</span>`
-    ).join("")
-  </script>
+        const text4 = document.querySelector('.circle-text4 p')
+        text4.innerHTML = text4.innerText.split("").map(
+            (char, i) =>
+                `<span style="transform:rotate(${i * 5}deg)">${char}</span>`
+        ).join("")
+    </script>
 
 </body>
+
 </html>

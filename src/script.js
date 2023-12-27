@@ -197,6 +197,7 @@ function adjustIndexes(){
 
     if(curInd==-1) curInd = objects.length - 1
     if(nextInd==-1) nextInd =  objects.length - 1
+    console.log("current" + curInd)
 }
 
 

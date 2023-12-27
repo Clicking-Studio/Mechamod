@@ -3,7 +3,6 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
 import * as TWEEN from '@tweenjs/tween.js';
 
-
 // variables for shadows
 let shadow1 = document.getElementById('shadow1')
 let shadow2 = document.getElementById('shadow2')
@@ -16,13 +15,13 @@ const loadingMessage = document.getElementById('loading-message');
 loadingMessage.style.display = 'block';
 
 const mousePos = {
-    x: window.innerWidth/2,
-    y: window.innerHeight/2
+    x: window.innerWidth / 2,
+    y: window.innerHeight / 2
 }
 
 const delayedMousePos = {
-x: window.innerWidth/2,
-y: window.innerHeight/2
+    x: window.innerWidth / 2,
+    y: window.innerHeight / 2
 }
 
 // Canvas
@@ -100,13 +99,13 @@ const snake = loader.load('https://firebasestorage.googleapis.com/v0/b/mechamod-
         scene.add(objects.at(-1))
         objects.at(-1).position.setZ(hiddenZoneZ)
 
-        const model3 = loader.load('https://firebasestorage.googleapis.com/v0/b/say-hi-30f6d.appspot.com/o/model4.stl?alt=media', (geometry) => {
+        const model3 = loader.load('https://firebasestorage.googleapis.com/v0/b/say-hi-30f6d.appspot.com/o/model3.stl?alt=media', (geometry) => {
             const material = new THREE.MeshNormalMaterial();
             objects.push(new THREE.Mesh(geometry, material))
             scene.add(objects.at(-1))
             objects.at(-1).position.setZ(hiddenZoneZ)
 
-            const model4 = loader.load('https://firebasestorage.googleapis.com/v0/b/say-hi-30f6d.appspot.com/o/model3.stl?alt=media', (geometry) => {
+            const model4 = loader.load('https://firebasestorage.googleapis.com/v0/b/say-hi-30f6d.appspot.com/o/model4.stl?alt=media', (geometry) => {
                 const material = new THREE.MeshNormalMaterial();
                 objects.push(new THREE.Mesh(geometry, material))
                 scene.add(objects.at(-1))
@@ -125,7 +124,7 @@ function onMouseMove(event) {
     mousePos.y = event.clientY
 }
 
-function updateDist(){
+function updateDist() {
     dist = window.innerWidth / window.innerHeight * 70 + 15  // distance between models will be calculated based on the window width
 }
 
@@ -140,25 +139,25 @@ const HOVER_EFFECT_DELAY = 1 //ms
 let transitionStarted = false
 
 const ZERO_ROT = {
-    x:0,
-    y:0,
-    z:0
+    x: 0,
+    y: 0,
+    z: 0
 }
 const RIGHT_ROT = {
-    x:Math.PI/1.7,
-    y:Math.PI/5, 
-    z:Math.PI/5
+    x: Math.PI / 1.7,
+    y: Math.PI / 5,
+    z: Math.PI / 5
 }
 const LEFT_ROT = {
-    x:Math.PI/1.7,
-    y:-Math.PI/5, 
-    z:-Math.PI/5
+    x: Math.PI / 1.7,
+    y: -Math.PI / 5,
+    z: -Math.PI / 5
 }
 
 window.addEventListener("resize", () => {
     // Update sizes
     sizes.width = window.innerWidth,
-    sizes.height = window.innerHeight
+        sizes.height = window.innerHeight
 
     // Update camera
     camera.aspect = sizes.width / sizes.height;
@@ -172,12 +171,12 @@ window.addEventListener("resize", () => {
     updateDist()
 });
 
-function adjustIndexes(){
-    if(curInd==objects.length) curInd = 0
-    if(nextInd==objects.length) nextInd = 0
+function adjustIndexes() {
+    if (curInd == objects.length) curInd = 0
+    if (nextInd == objects.length) nextInd = 0
 
-    if(curInd==-1) curInd = objects.length - 1
-    if(nextInd==-1) nextInd =  objects.length - 1
+    if (curInd == -1) curInd = objects.length - 1
+    if (nextInd == -1) nextInd = objects.length - 1
 }
 
 
@@ -190,15 +189,16 @@ var product3 = document.getElementById('product-container2')// make the text a v
 var product4 = document.getElementById('product-container3')// make the text a variable
 
 
-var objbut=["snake", "shenon", "model3", "model4"]//make the keycaps an array of an object
-function visibility(indexVisible){//in this fuction from four buttons only one is visible, that button being the keycap specific button
-    for(let index = 0; index < objbut.length; index++){
+var objbut = ["snake", "shenon", "model3", "model4"]//make the keycaps an array of an object
+function visibility(indexVisible) {//in this fuction from four buttons only one is visible, that button being the keycap specific button
+    for (let index = 0; index < objbut.length; index++) {
         let currbut = document.getElementById(objbut[index])
-        currbut.style.display="none"
+        currbut.style.display = "none"
+
 
     }
-    let visBut=document.getElementById(objbut[indexVisible])
-    visBut.style.display  = "block"
+    let visBut = document.getElementById(objbut[indexVisible])
+    visBut.style.display = "block"
 }
 
 
@@ -213,14 +213,15 @@ var snakeBack = document.querySelector('.snake-background-item img')
 snakeFigure.classList.add('transition-active');
 
 
+
 var isZoomed = false;
 if (isZoomed) {
     // Return to normal scale
     snakeBack.style.transform = 'scale(1.5)';
-  } else {
+} else {
     // Apply the transition
     snakeBack.style.transform = 'scale(1)';
-  }
+}
 
 function circleText() {
     if (index === 0) {
@@ -256,14 +257,18 @@ function circleText() {
         snakeBack.style.transform = 'scale(1.5)';
         snakeFigure.classList.remove('transition-active')
     }
-}
 
-  
+}
+console.log("Starting index: " + curInd)
+
 let index = 0;
 visibility(0);
-document.addEventListener("wheel", (event) => {
-    visibletext ()// here i call a function that make the text if visible to dissappear when scroll
-  if (event.deltaY < 0) {
+document.getElementById('previousBTN').addEventListener("click", () => {
+    visibletext()// here i call a function that make the text if visible to dissappear when scroll
+    
+    console.log(`User clicked 'previous index.'`)
+    console.log("Current index: " + curInd)
+
     // Scrollwheel up
     if (transitionStarted) return;
     curInd = nextInd;
@@ -273,69 +278,121 @@ document.addEventListener("wheel", (event) => {
     objects[nextInd].position.setX(-dist);
     slide(curInd, 1, ZERO_ROT, RIGHT_ROT, TWEEN.Easing.Cubic.InOut);
     slide(nextInd, 1, LEFT_ROT, ZERO_ROT, TWEEN.Easing.Cubic.InOut);
-    if(index === 0){// here if position is 0 and you scroll up, it moves to 3
-      index = 3;
-      }else index --;
-      visibility(index);
-    // Hide the scroll icon
-    scrollIcon.classList.add('hide-icon');
-  }
-  circleText();
+    if (index === 0) {// here if position is 3 and you scroll up, it moves to 0
+        index = 3;
+    } else index--;
+
+    visibility(index);
+
+    circleText();
 });
 
-  document.addEventListener("wheel", (event) => {
-    visibletext ()// here i call a function that make the text if visible to dissappear when scroll
-    if (event.deltaY > 0) {
-      // Scrollwheel down
-      if (transitionStarted) return;
-      curInd = nextInd;
-      nextInd++;
-      adjustIndexes();
-      objects[curInd].position.setX(0);
-      objects[nextInd].position.setX(dist);
-      slide(curInd, -1, ZERO_ROT, LEFT_ROT, TWEEN.Easing.Cubic.InOut);
-      slide(nextInd, -1, RIGHT_ROT, ZERO_ROT, TWEEN.Easing.Cubic.InOut);
-          if( index === 3){// here if position is 3 and you scroll up, it moves to 0
-               index = 0;
-          }else index ++;
-          visibility(index);
-          // Hide the scroll icon
-    scrollIcon.classList.add('hide-icon');
-    }
+document.getElementById('nextBTN').addEventListener("click", () => {
+    visibletext()// here i call a function that make the text if visible to dissappear when scroll
+
+    console.log(`User clicked 'next index.'`)
+    console.log("Current index: " + curInd)
+
+    // Scrollwheel down
+    if (transitionStarted) return;
+    curInd = nextInd;
+    nextInd++;
+    adjustIndexes();
+    objects[curInd].position.setX(0);
+    objects[nextInd].position.setX(dist);
+    slide(curInd, -1, ZERO_ROT, LEFT_ROT, TWEEN.Easing.Cubic.InOut);
+    slide(nextInd, -1, RIGHT_ROT, ZERO_ROT, TWEEN.Easing.Cubic.InOut);
+    if (index === 3) {// here if position is 3 and you scroll up, it moves to 0
+        index = 0;
+    } else index++;
+    visibility(index);
+
     circleText();
-  });
-  
+});
 
-  var product1Visible = false;
-  var product2Visible = false;
-  var product3Visible = false;
-  var product4Visible = false;
 
- 
+var product1Visible = false;
+var product2Visible = false;
+var product3Visible = false;
+var product4Visible = false;
+
+
 
 const button0 = document.getElementById('snake');//make the text appear on click and at the second click to dissappear
-  button0.addEventListener('click', () => {
+button0.addEventListener('click', () => {
     product1Visible = !product1Visible;
-    product1.style.display = product1Visible ? "block" : "none";
-});
-const button1 = document.getElementById('shenon');//make the text appear on click and at the second click to dissappear
-  button1.addEventListener('click', () => {
-    product2Visible = !product2Visible;
-    product2.style.display = product2Visible ? "block" : "none";
-    //shenronCircle.style.display = product2Visible ? "block" : "none";
-});
-const button2 = document.getElementById('model3');//make the text appear on click and at the second click to dissappear
-  button2.addEventListener('click', () => {
-    product3Visible = !product3Visible;
-    product3.style.display = product3Visible ? "block" : "none";
-});
-const button3 = document.getElementById('model4');//make the text appear on click and at the second click to dissappear
-  button3.addEventListener('click', () => {
-    product4Visible = !product4Visible;
-    product4.style.display = product4Visible ? "block" : "none";
+    if (product1Visible) {
+        product1.style.display = "block";
+        setTimeout(() => {
+            product1.style.opacity = "1";
+            product1.style.transition = "opacity 0.5s ease"; // Add fade transition
+        }, 0); // Apply transition after a short delay
+    } 
+    else {
+        product1.style.transition = "opacity 0.5s ease";
+        product1.style.opacity = "0";
+        setTimeout(() => {
+            product1.style.display = "none";
+        }, 500);
+    }
 });
 
-function visibletext () {//this is the function that will make the text if it s open to dissappear on scroll
+const button1 = document.getElementById('shenon');//make the text appear on click and at the second click to dissappear
+button1.addEventListener('click', () => {
+    product2Visible = !product2Visible;
+    if (product2Visible) {
+        product2.style.display = "block";
+        setTimeout(() => {
+            product2.style.opacity = "1";
+            product2.style.transition = "opacity 0.5s ease"; // Add fade transition
+        }, 0); // Apply transition after a short delay
+    } 
+    else {
+        product2.style.transition = "opacity 0.5s ease";
+        product2.style.opacity = "0";
+        setTimeout(() => {
+            product2.style.display = "none";
+        }, 500);
+    }
+});
+const button2 = document.getElementById('model3');//make the text appear on click and at the second click to dissappear
+button2.addEventListener('click', () => {
+    product3Visible = !product3Visible;
+    if (product3Visible) {
+        product3.style.display = "block";
+        setTimeout(() => {
+            product3.style.opacity = "1";
+            product3.style.transition = "opacity 0.5s ease"; // Add fade transition
+        }, 0); // Apply transition after a short delay
+    } 
+    else {
+        product3.style.transition = "opacity 0.5s ease";
+        product3.style.opacity = "0";
+        setTimeout(() => {
+            product3.style.display = "none";
+        }, 500);
+    }
+});
+const button3 = document.getElementById('model4');//make the text appear on click and at the second click to dissappear
+button3.addEventListener('click', () => {
+    product4Visible = !product4Visible;
+    if (product4Visible) {
+        product4.style.display = "block";
+        setTimeout(() => {
+            product4.style.opacity = "1";
+            product4.style.transition = "opacity 0.5s ease"; // Add fade transition
+        }, 0); // Apply transition after a short delay
+    } 
+    else {
+        product4.style.transition = "opacity 0.5s ease";
+        product4.style.opacity = "0";
+        setTimeout(() => {
+            product4.style.display = "none";
+        }, 500);
+    }
+});
+
+function visibletext() {//this is the function that will make the text if it s open to dissappear on scroll
     product1.style.display = "none";
     product2.style.display = "none";
     product3.style.display = "none";
@@ -344,80 +401,80 @@ function visibletext () {//this is the function that will make the text if it s 
 
 
 
-function slide(objInd, dir, startRot, endRot, easing){
-    transitionStarted = true 
-    const tween = new TWEEN.Tween({ posX:objects[objInd].position.x, rotX:startRot.x, rotY:startRot.y, rotZ:startRot.z, shadowX:0, shadowOpacity:1})
-    .to({ posX: objects[objInd].position.x + dir*dist, rotX:endRot.x, rotY:endRot.y, rotZ:endRot.z, shadowX:window.innerWidth/1.3, shadowOpacity:shadowDuration}, 2000/TRANSITION_SPEED)
-    .easing(easing)
-    .onUpdate((coords) => {
-        shadow1.style.transform = "translateY(" + (-coords.shadowX * dir) + "px)"
-    shadow2.style.transform = "translateY(" + (-(coords.shadowX-window.innerWidth/1.3) * dir) + "px)"
-    shadow1.style.opacity = coords.shadowOpacity
-    shadow2.style.opacity = shadowDuration + 1 - coords.shadowOpacity
-    objects[objInd].position.setZ(coords.posX)
-    objects[objInd].position.setX(0)
-    objects[objInd].rotation.y = coords.rotY
-    objects[objInd].rotation.x = coords.rotX
-    objects[objInd].rotation.z = coords.rotZ
-    })
-    .onComplete(()=>{
-        multiplierX=0
-        multiplierZ=0
-        transitionStarted = false
-        hoverEffectStarted = false
-        if(objInd != nextInd) {
-            objects[objInd].position.setZ(hiddenZoneZ) // hide model
-        }
-    })
+function slide(objInd, dir, startRot, endRot, easing) {
+    transitionStarted = true
+    const tween = new TWEEN.Tween({ posX: objects[objInd].position.x, rotX: startRot.x, rotY: startRot.y, rotZ: startRot.z, shadowX: 0, shadowOpacity: 1 })
+        .to({ posX: objects[objInd].position.x + dir * dist, rotX: endRot.x, rotY: endRot.y, rotZ: endRot.z, shadowX: window.innerWidth / 1.3, shadowOpacity: shadowDuration }, 2000 / TRANSITION_SPEED)
+        .easing(easing)
+        .onUpdate((coords) => {
+            shadow1.style.transform = "translateY(" + (-coords.shadowX * dir) + "px)"
+            shadow2.style.transform = "translateY(" + (-(coords.shadowX - window.innerWidth / 1.3) * dir) + "px)"
+            shadow1.style.opacity = coords.shadowOpacity
+            shadow2.style.opacity = shadowDuration + 1 - coords.shadowOpacity
+            objects[objInd].position.setZ(coords.posX)
+            objects[objInd].position.setX(0)
+            objects[objInd].rotation.y = coords.rotY
+            objects[objInd].rotation.x = coords.rotX
+            objects[objInd].rotation.z = coords.rotZ
+        })
+        .onComplete(() => {
+            multiplierX = 0
+            multiplierZ = 0
+            transitionStarted = false
+            hoverEffectStarted = false
+            if (objInd != nextInd) {
+                objects[objInd].position.setZ(hiddenZoneZ) // hide model
+            }
+        })
     tween.start();
 }
 
 
 let timeoutId
-function startHoverEffect(){
+function startHoverEffect() {
     hoverEffectStarted = true
     timeoutId = setTimeout(() => {
-        const tween = new TWEEN.Tween({x:multiplierX, z:multiplierZ})
-        // .delay(HOVER_EFFECT_DELAY)
-        .to({ x:0.0019, z:0.0017}, 500/HOVER_EFFECT_START_SPEED)
-        .easing(TWEEN.Easing.Quadratic.InOut)
-        .onUpdate((coords) => {
-            multiplierX = coords.x
-            multiplierZ = coords.z
-            if(hoveringInZone == false) {
-                tween.stop()
-                clearTimeout(timeoutId)
-            }
-        })
+        const tween = new TWEEN.Tween({ x: multiplierX, z: multiplierZ })
+            // .delay(HOVER_EFFECT_DELAY)
+            .to({ x: 0.0019, z: 0.0017 }, 500 / HOVER_EFFECT_START_SPEED)
+            .easing(TWEEN.Easing.Quadratic.InOut)
+            .onUpdate((coords) => {
+                multiplierX = coords.x
+                multiplierZ = coords.z
+                if (hoveringInZone == false) {
+                    tween.stop()
+                    clearTimeout(timeoutId)
+                }
+            })
         tween.start();
     }, HOVER_EFFECT_DELAY);
 }
 
-function stopHoverEffect(){
+function stopHoverEffect() {
     clearTimeout(timeoutId)
     hoverEffectStarted = false
-    const tween = new TWEEN.Tween({x:multiplierX, z:multiplierZ})
-    .to({ x:0, z:0}, 500/HOVER_EFFECT_END_SPEED)
-    .easing(TWEEN.Easing.Quadratic.InOut)
-    .onUpdate((coords) => {
-        multiplierX = coords.x
-        multiplierZ = coords.z
-    })
+    const tween = new TWEEN.Tween({ x: multiplierX, z: multiplierZ })
+        .to({ x: 0, z: 0 }, 500 / HOVER_EFFECT_END_SPEED)
+        .easing(TWEEN.Easing.Quadratic.InOut)
+        .onUpdate((coords) => {
+            multiplierX = coords.x
+            multiplierZ = coords.z
+        })
     tween.start();
 }
 
 
 let hoveringInZone = false
-document.getElementById('hover-zone').addEventListener("mouseover", ()=>{
+document.getElementById('hover-zone').addEventListener("mouseover", () => {
     hoveringInZone = true
 });
-document.getElementById('hover-zone').addEventListener("mouseout", ()=>{
+document.getElementById('hover-zone').addEventListener("mouseout", () => {
     hoveringInZone = false
-    
+
 });
 
 // Animate
-let multiplierX =0, multiplierZ=0;
+let multiplierX = 0, multiplierZ = 0;
 let hoverEffectStarted = false
 
 
@@ -432,7 +489,7 @@ const tick = () => {
 
     const xDistance = delayedMousePos.x - mousePos.x;
     const yDistance = delayedMousePos.y - mousePos.y;
-     
+
     mouseDist = Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2))
     mouseDist = mouseDist / 10000
 
@@ -443,13 +500,13 @@ const tick = () => {
     // mycurs.style.top = delayedMousePos.y +'px'
 
     //rotate the model based on mouse pos
-    if(objects[nextInd]){
-        objects[nextInd].rotation.x = multiplierX * (delayedMousePos.y-window.innerHeight/2)
-        objects[nextInd].rotation.z = multiplierZ * (delayedMousePos.x-window.innerWidth/2)
+    if (objects[nextInd]) {
+        objects[nextInd].rotation.x = multiplierX * (delayedMousePos.y - window.innerHeight / 2)
+        objects[nextInd].rotation.z = multiplierZ * (delayedMousePos.x - window.innerWidth / 2)
     }
-    if(hoveringInZone==true && hoverEffectStarted==false){
+    if (hoveringInZone == true && hoverEffectStarted == false) {
         startHoverEffect()
-    }else if(hoveringInZone==false && hoverEffectStarted==true){
+    } else if (hoveringInZone == false && hoverEffectStarted == true) {
         stopHoverEffect()
     }
 
