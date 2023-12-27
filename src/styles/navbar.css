@@ -61,21 +61,32 @@
     font-style: normal;
     font-weight: normal;
     text-decoration: none;
+    transition: color 0.3s ease;
   }
-
+  
   .navbar_container a:hover {
-    color: #ddd;
+    color: #9f9d9d;
   }
 
   .navbar_text {
     padding: 120px 8px;
     display: inline-block;
+    transition: transform 0.8s ease; /* Add transition for color and transform*/
+  }
+
+  .navbar_text:hover {
+    transform: scale(1.06); /* Increase the size on hover */
   }
 
   .navbar_side_text {
     float: right;
     padding: 120px;
     display: inline-block;
+    transition: transform 1.2s ease; /* Add transition for color and transform*/
+  }
+
+  .navbar_side_text:hover {
+    transform: scale(1.1); /* Increase the size on hover */
   }
 
   .navbar_line_spacer {
@@ -89,6 +100,11 @@
     height: 129px;
     padding: 60px 60px;
     display: inline-block;
+    transition: transform 1.6s ease; /* Add transition for color and transform*/
+  }
+
+  .navbar_logo:hover {
+    transform: scale(1.06); /* Increase the size on hover */
   }
 
   .dark .navbar_logo {
